@@ -28,6 +28,8 @@ fun main() {
             println(this@some.uppercase())
         }
     }
+
+    lamdaFun(::lambdaDo)
 }
 
 data class Employee(val firstName: String, val lastName: String, val startYear: Int)
@@ -45,4 +47,15 @@ fun countTo100_2(): String {
     return StringJoiner(",").apply {
         for (i in 1..100) add(i.toString())
     }.toString()
+}
+
+fun lamdaFun(lamb: (s: String, i: Int) -> String): String {
+    return lamb.invoke("Hello", 5)
+}
+
+fun <T, I: Number> lambdaDo(s: T, i: I): T {
+    for (j in 1..i.toInt()) {
+        println(s)
+    }
+    return s;
 }
